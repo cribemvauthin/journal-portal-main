@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足球竞猜 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #eef1f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1e2a3a;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* Hero 区 —— 开场短句 */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.5rem 2rem 2rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            border: 1px solid #dce2ea;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1d2b3c;
+            line-height: 1.3;
+        }
+
+        .hero h1 small {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #556573;
+            margin-top: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .hero .tagline {
+            margin-top: 1.2rem;
+            font-size: 1.1rem;
+            color: #3d4c5e;
+            background: #f3f6fa;
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            border: 1px solid #d7dee6;
+        }
+
+        /* 承接段落卡片 */
+        .intro-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+            border: 1px solid #dfe5ed;
+        }
+
+        .intro-card p {
+            margin-bottom: 1rem;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card a {
+            color: #1e4b7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b6c8db;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro-card a:hover {
+            border-bottom-color: #1e4b7a;
+            color: #0a2b44;
+        }
+
+        /* 特点列表（用卡片网格） */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            background: #ffffff;
+            border: 1px solid #dce2ea;
+            border-radius: 18px;
+            padding: 1.4rem 1.4rem 1.4rem 1.4rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #1d2b3c;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #3c4d62;
+        }
+
+        .feature-item .emoji-badge {
+            display: inline-block;
+            background: #eef4fa;
+            padding: 0.2rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #2b4b6e;
+            border: 1px solid #d0dae6;
+            margin-top: 0.4rem;
+        }
+
+        /* 温和结尾卡片 */
+        .closing-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #dce2ea;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            text-align: center;
+        }
+
+        .closing-card p {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .closing-card .signature {
+            font-size: 0.9rem;
+            color: #5c6f82;
+            border-top: 1px solid #e3e9f0;
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .closing-card a {
+            color: #1e4b7a;
+            text-decoration: none;
+            border-bottom: 1px solid #b6c8db;
+            font-weight: 500;
+        }
+
+        .closing-card a:hover {
+            border-bottom-color: #1e4b7a;
+        }
+
+        /* 底部免责与提示 */
+        .footer-note {
+            text-align: center;
+            color: #6d7e91;
+            font-size: 0.85rem;
+            padding: 0.6rem 0 1.2rem 0;
+            border-top: 1px solid #d5dde6;
+            margin-top: 1.5rem;
+        }
+
+        .footer-note span {
+            display: inline-block;
+            background: #e6ecf3;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            color: #2b4055;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hero, .intro-card, .closing-card {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+
+            .feature-item {
+                padding: 1rem 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero .tagline {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+    <!-- 开场短句 -->
+    <div class="hero">
+        <h1>
+            足球竞猜 — 一个平稳的起点
+            <small>围绕赛前信息与页面引导的简要说明</small>
+        </h1>
+        <div class="tagline">入口 · 结构 · 稳定感</div>
+    </div>
+
+    <!-- 承接段落：从稳定入口和页面说明展开 -->
+    <div class="intro-card">
+        <p>
+            如果你正在寻找一个关于 <strong>足球竞猜</strong> 的信息起点，那么了解它的页面布局和访问方式会很有帮助。
+            许多参与者更倾向于先熟悉平台的结构，而不是直接进入操作。这份说明旨在以平实的视角，介绍
+            <a href="https://portal-main-guessscore.com">足球竞猜</a> 在浏览路径上的几个关键特征。
+        </p>
+        <p>
+            从主页的导航分区到竞猜项目的展示逻辑，清晰的内容组织能减少不必要的跳转。我们整理了以下四个特点，
+            它们共同构成了一个相对稳定、不易迷失的浏览环境。无论你是初次接触还是希望回顾界面逻辑，
+            下面的归纳都可以作为一份简单的参照。
+        </p>
+    </div>
+
+    <!-- 特点列表：4项，用网格 -->
+    <div class="features-grid">
+        <div class="feature-item">
+            <h3>① 固定的主导航</h3>
+            <p>页面顶部保持一致的栏目分区，包括当前竞猜、历史记录与说明页。即使滚动到页面底部，导航入口依然可见。</p>
+            <span class="emoji-badge">结构稳定</span>
+        </div>
+        <div class="feature-item">
+            <h3>② 竞猜卡片预览</h3>
+            <p>每场赛事以独立卡片呈现，包含对阵信息、时间与状态标记。卡片不会频繁改变尺寸，便于快速浏览。</p>
+            <span class="emoji-badge">视觉统一</span>
+        </div>
+        <div class="feature-item">
+            <h3>③ 状态引导提示</h3>
+            <p>在未登录或竞猜未开始时，页面会显示浅色提示条，说明当前状态与下一步可能操作，避免点击无效入口。</p>
+            <span class="emoji-badge">减少困惑</span>
+        </div>
+        <div class="feature-item">
+            <h3>④ 简洁的页脚信息</h3>
+            <p>页脚仅存放必要的说明链接与版本标注，不堆积无关元素。竞猜相关的主要路径始终保持在内容区域。</p>
+            <span class="emoji-badge">干净收尾</span>
+        </div>
+    </div>
+
+    <!-- 温和结尾：结合链接与总结 -->
+    <div class="closing-card">
+        <p>
+            以上四个特点围绕「稳定入口和页面说明」展开。当你访问
+            <a href="https://portal-main-guessscore.com">足球竞猜</a> 时，
+            可以留意导航栏的固定位置、卡片式的信息呈现，以及那些不起眼但实际有用的状态提示。
+        </p>
+        <p>
+            这些设计未必华丽，但对于日常使用来说，它们提供了一种可预期的浏览节奏。
+            认真整理过后的页面，往往比花哨的界面更容易让人感到安心。
+        </p>
+        <div class="signature">
+            —— 一份关于页面结构的简要说明 · 仅作参考
+        </div>
+    </div>
+
+    <!-- 底部提示区（FAQ摘要风格） -->
+    <div class="footer-note">
+        <span>⚽ 常见问题摘要</span>
+        页面入口与竞猜卡片均位于主内容区；如遇加载延迟，可尝试刷新或检查网络状态。
+    </div>
+
+</div>
+
+</body>
+</html>
